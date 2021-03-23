@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center justify-content-between flex-wrap mb-4">
   <h1>Twitter Accounts<h1>
   <%= link_to "Connect a Twitter account", '/auth/twitter', method: :post, class: "btn btn-primary" %>
 </div>
@@ -8,6 +8,6 @@
       <%= image_tag account.image, class: "rounded-circle" %>
       <% link_to "@#{account.username}", "https://twitter.com/#{account.username}", target: :_blank %>
     </div>
-    <%= button_to "Disconnect", account, method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= button_to "Disconnect", account, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
   </div>
 <% end %>
