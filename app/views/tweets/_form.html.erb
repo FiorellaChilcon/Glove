@@ -3,7 +3,7 @@
   <div class="mb-3">
     <%= t.label :twitter_account_id, "Choose a Twitter account" %>
     <%= t.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control" } %>
-    <%= link_to "Connect Your Twitter Account", "/auth/twitter" %>
+    <%= link_to "Connect Your Twitter Account", "/auth/twitter", method: :post %>
   </div>
   <div class="mb-3">
     <%= t.label :body, "Message" %>

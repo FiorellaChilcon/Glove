@@ -1,4 +1,15 @@
-<h1>About us</h1>
-<div class="my-4">Signed up to start scheduling your tweets with us!</div>
-<%= image_tag "twitter.png", class: "icon-calendar" %>
-<%= image_tag "calendar.png", class: "icon-twitter" %>
+<div class="d-flex flex-column align-items-center justify-content-center">
+  <h1 class="text-center">Welcome to Scheduled Tweets</h1>
+  <div class="my-4 text-center">
+    Sign up to start scheduling your tweets with us!
+  </div>
+  <div class="mb-4 d-flex flex-row align-items-center">
+    <%= image_tag "twitter.png", class: "icon-calendar me-2" %>
+    <%= image_tag "calendar.png", class: "icon-twitter" %>
+  </div>
+
+  <div class="mb-4 d-flex flex-row align-items-center">
+    <%= link_to "Log in", sign_in_path, class: "btn btn-primary me-2" %>
+    <%= link_to "Sign up", sign_up_path, class: "btn btn-primary" %>
+  </div>
+</div>

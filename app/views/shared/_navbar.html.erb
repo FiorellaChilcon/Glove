@@ -7,6 +7,9 @@
       <ul class="navbar-nav">
         <% if Current.user %>
           <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link home #{'active' if current_page?(root_path)}" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "Twitter Accounts", twitter_accounts_path, class: "nav-link #{'active' if current_page?(twitter_accounts_path)}" %>
           </li>
           <li class="nav-item">
@@ -14,7 +17,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "About", about_path, class: "nav-link #{'active' if current_page?(about_path)}" %>
+            <%= link_to "About", about_path, class: "nav-link about #{'active' if current_page?(about_path)}" %>
           </li>
         <% end %>
       </ul>
@@ -22,7 +25,7 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if Current.user %>
           <li class="nav-item">
-            <%= link_to Current.user.first_name, edit_password_path, class: "nav-link #{'active' if current_page?(edit_password_path)}" %>
+            <%= link_to Current.user.first_name, edit_password_path, class: "nav-link me-2 me #{'active' if current_page?(edit_password_path)}" %>
           </li>
           <li class="nav-item">
             <%= button_to "Log out", logout_path, method: :delete, class: "btn btn-outline-secondary" %>

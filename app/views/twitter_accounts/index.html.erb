@@ -1,13 +1,19 @@
 <div class="d-flex align-items-center justify-content-between flex-wrap mb-4">
-  <h1>Twitter Accounts<h1>
+  <h1 class="me-3">Twitter Accounts<h1>
   <%= link_to "Connect a Twitter account", '/auth/twitter', method: :post, class: "btn btn-primary" %>
 </div>
 <% @twitter_accounts.each do |account| %>
-  <div class="d-flex align-items-center mb-4">
-    <div class="me-4">
-      <%= image_tag account.image, class: "rounded-circle" %>
-      <% link_to "@#{account.username}", "https://twitter.com/#{account.username}", target: :_blank %>
+  <div class="d-flex align-items-center mb-4 flex-wrap">
+    <div class="me-4 d-flex align-items-center">
+      <%= image_tag account.image, class: "rounded-circle mb-3 me-3 mt-3" %>
+      <%= link_to "@#{account.username}", "https://twitter.com/#{account.username}", target: :_blank %>
     </div>
     <%= button_to "Disconnect", account, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
   </div>
 <% end %>
+
+<% if @twitter_accounts.empty? -%>
+  <div class="d-flex justify-content-center alert alert-dark">
+    You haven't connected a twitter account yet
+  </div>
+<% end -%>
