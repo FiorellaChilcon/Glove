@@ -2,7 +2,7 @@ class TwitterAccount < ApplicationRecord
   has_many :tweets, dependent: :destroy
   belongs_to :user
 
-  validates :username, uniqueness: true
+  validates :username, uniqueness: { message: 'Twitter account already associated with an account' }
 
   def client
     Twitter::REST::Client.new do |config|

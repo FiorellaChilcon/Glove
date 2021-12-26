@@ -15,7 +15,7 @@ class TweetsController < ApplicationController
   def update
     if @tweet.update(tweet_params)
       TweetJob.set(wait_until: @tweet.publish_at).perform_later(@tweet)
-      redirect_to tweets_path, notice: "Tweet was updated successfully"
+      redirect_to tweets_path, notice: 'Tweet was updated successfully'
     else
       render :edit
     end
@@ -23,16 +23,18 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet.destroy
-    redirect_to tweets_path, notice: "Tweet was deleted successfully"
+    redirect_to tweets_path, notice: 'Tweet was deleted successfully'
   end
 
   def create
-    @tweet = Current.user.tweets.create(tweet_params)
-    if @tweet.save
-      TweetJob.set(wait_until: @tweet.publish_at).perform_later(@tweet)
-      redirect_to tweets_path, notice: "Tweet was scheduled successfully"
-    else
-      render :new
+    ActiveRecord::Base.transaction do
+      @tweet = Current.user.tweets.create(tweet_params)
+      if @tweet.save
+        TweetJob.set(wait_until: @tweet.publish_at).perform_later(@tweet)
+        redirect_to tweets_path, notice: 'Tweet was scheduled successfully'
+      else
+        render :new
+      end
     end
   end
 
