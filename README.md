@@ -1,33 +1,34 @@
 # Scheduled Tweets
 Go rails tutorial https://gorails.com/episodes/rails-for-beginners-part-1-installing-ruby-on-rails
 ## Installation
-`yarn install`
+`yarn install` <br />
 `bundle install`
 ## Database
-create database
+create database <br />
 `rails db:create`
 
 ## Migrations
-run migrations
+run migrations <br />
 `rails db:migrate`
 ## Server
-start server
+start server <br />
 `rails server`
 
 ## Local set up
-Install redis
-`brew install redis`
-Start service
-`brew services restart redis`
-Login to Heroku CLI
-`heroku login`
-Add project
+- Install redis <br />
+`brew install redis` <br />
+- Start service <br />
+`brew services restart redis` <br />
+- Login to Heroku CLI <br />
+`heroku login` <br />
+- Add project <br />
 `heroku git:remote -a app-scheduled-tweets`
-## Push changes
-`heroku push master`
-Update migrations
-`heroku run rake db:migrate`
-Update rails credentials
-`EDITOR="code --wait" bin/rails credentials:edit --environment=development`
-Update development/production key
+## Changes
+- Push changes <br />
+`heroku push master` <br />
+- Update migrations <br />
+`heroku run rake db:migrate` <br />
+- Update rails credentials <br />
+`EDITOR="code --wait" bin/rails credentials:edit --environment=development` <br />
+- Update development/production key <br />
 heroku platform >> project >> settings >> Config Vars `RAILS_MASTER_KEY`
