@@ -1,4 +1,5 @@
 # Scheduled Tweets
+Project to put into practice the this I learnt in a course of ruby-on-rails and ruby.
 Go rails tutorial https://gorails.com/episodes/rails-for-beginners-part-1-installing-ruby-on-rails
 ## Installation
 `yarn install` <br />
