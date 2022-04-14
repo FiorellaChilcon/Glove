@@ -18,8 +18,10 @@ start server <br />
 ## Local set up
 - Install redis <br />
 `brew install redis` <br />
-- Start service <br />
-`brew services restart redis` <br />
+- Start services <br />
+`brew services start redis` <br />
+`brew services start postgresql` <br />
+`brew postgresql-upgrade-database` (if needed)
 - Login to Heroku CLI <br />
 `heroku login` <br />
 - Add project <br />
